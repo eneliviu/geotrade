@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <style>
         #map {
@@ -28,18 +31,23 @@
     <div id="map"></div>
     <div id="chart"></div>
 
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script>
+
         // Initialize Leaflet Map
-        var map = L.map('map').setView([37.7749, -122.4194], 5);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        var map = L.map('map').setView([51.505, -0.09], 13);
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
-            attribution: '© OpenStreetMap'
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         }).addTo(map);
+
 
         var companyLocations = [
             {
                 name: "Company 1",
-                coords: [37.7749, -122.4194],
+                coords: [51.504, -0.08],
                 stockData: {
                     dates: ['2022-01-01', '2022-02-01', '2022-03-01'],
                     prices: [10, 15, 13]
@@ -47,7 +55,7 @@
             },
             {
                 name: "Company 2",
-                coords: [40.7128, -74.0060],
+                coords: [51.505, -0.095],
                 stockData: {
                     dates: ['2022-01-01', '2022-02-01', '2022-03-01'],
                     prices: [18, 12, 20]
